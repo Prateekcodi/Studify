@@ -23,7 +23,9 @@ app = FastAPI(
 # CORS middleware configuration
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allow all origins for debugging
+    allow_origins=[
+        "https://backbenchers-way.netlify.app"
+    ],  # Only allow your frontend domain
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
