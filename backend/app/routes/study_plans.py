@@ -24,8 +24,8 @@ async def create_study_plan(
         if request is not None:
             raw_body = await request.body()
             logger.info(f"Raw request body: {raw_body}")
-        logger.info(f"Creating study plan with data: {study_plan.model_dump()}")
-        db_study_plan = StudyPlanModel(**study_plan.model_dump())
+        logger.info(f"Creating study plan with data: {study_plan.dict()}")
+        db_study_plan = StudyPlanModel(**study_plan.dict())
         db.add(db_study_plan)
         await db.commit()
         await db.refresh(db_study_plan)
@@ -88,7 +88,7 @@ async def update_study_plan(
         if db_study_plan is None:
             raise HTTPException(status_code=404, detail="Study plan not found")
         
-        for key, value in study_plan.model_dump().items():
+        for key, value in study_plan.dict().items():
             setattr(db_study_plan, key, value)
         
         await db.commit()
