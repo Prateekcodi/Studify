@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE = 'https://studytracker-production-6ab9.up.railway.app';
+const API_BASE = 'https://studify-production-40da.up.railway.app';
 
 // Create axios instance with default config
 const axiosInstance = axios.create({
