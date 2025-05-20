@@ -127,3 +127,5 @@ async def delete_study_plan(
             status_code=500,
             detail=f"Failed to delete study plan: {str(e)}"
         )
+        
+        return db_study_plan  # This is a SQLAlchemy model instanc
